@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
         snapHelper.attachToRecyclerView(calendar_recycler_view)
 
         /**
-         * This is the maximum month that calendar will display. I set it on 6 month, but you can
-         * increase or decrease as much you want.
+         * This is the maximum month that the calendar will display. 
+         * I set it for 6 months, but you can increase or decrease as much you want.
          */
         lastDayInCalendar.add(Calendar.MONTH, 6)
 
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         /**
          * Go to the previous month. First, make sure the current month (cal)
          * is after the current date so that you can't go before the current month.
-         * Then remove one month from the sludge. Finally, ask if cal is equal to the current date.
+         * Then subtract  one month from the sludge. Finally, ask if cal is equal to the current date.
          * If so, then you don't want to give @param changeMonth, otherwise changeMonth as cal.
          */
         calendar_prev_button!!.setOnClickListener {
@@ -65,8 +65,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         /**
-         * Go to next month. First check if current month (cal) is before lastDayInCalendar,
-         * so hat you can't go after last possible month. Then add one month to cal.
+         * Go to the next month. First check if the current month (cal) is before lastDayInCalendar,
+         * so that you can't go after the last possible month. Then add one month to cal. 
          * Then put @param changeMonth.
          */
         calendar_next_button!!.setOnClickListener {
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * @param changeMonth I am using it only if next or previous month is not current month
+     * @param changeMonth I am using it only if next or previous month is not the current month
      */
     private fun setUpCalendar(changeMonth: Calendar? = null) {
         txt_current_month!!.text = sdf.format(cal.time)
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
 
         /**
          *
-         * If changeMonth is not null, then I will take the day, month and year from it,
+         * If changeMonth is not null, then I will take the day, month, and year from it,
          * otherwise set the selected date as the current date.
          */
         selectedDay =
@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
 
         /**
          * Fill dates with days and set currentPosition.
-         * currentPosition is position of first selected day.
+         * currentPosition is the position of first selected day.
          */
         while (dates.size < maxDaysInMonth) {
             // get position of selected day
