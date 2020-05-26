@@ -21,7 +21,7 @@ class CalendarAdapter(private val context: Context,
                       private val changeMonth: Calendar?): RecyclerView.Adapter<CalendarAdapter.ViewHolder>() {
     private var mListener: OnItemClickListener? = null
     private var index = -1
-    // This is true only first time you load calendar.
+    // This is true only the first time you load the calendar.
     private var selectCurrentDate = true
     private val currentMonth = currentDate[Calendar.MONTH]
     private val currentYear = currentDate[Calendar.YEAR]
@@ -55,7 +55,7 @@ class CalendarAdapter(private val context: Context,
         cal.time = data[position]
 
         /**
-         * Set year, month and day that are gonna be displayed
+         * Set the year, month and day that is gonna be displayed
          */
         val displayMonth = cal[Calendar.MONTH]
         val displayYear= cal[Calendar.YEAR]
@@ -76,7 +76,7 @@ class CalendarAdapter(private val context: Context,
         /**
          * I think you can use "cal.after (currentDate)" and "cal == currentDate",
          * but it didn't work properly for me, so I used this longer version. Here I just ask
-         * if the displayed date is after the current date or if the it is current date, if so,
+         * if the displayed date is after the current date or if it is current date, if so,
          * then you enable the item and it is possible to click on it, otherwise deactivate it.
          * The selectCurrentDate value is valid only at the beginning, it will be the current
          * day or the first day, for example when starting the application or changing the month.
@@ -85,7 +85,7 @@ class CalendarAdapter(private val context: Context,
             if (displayMonth >= currentMonth || displayYear > currentYear)
                 if (displayDay >= currentDay || displayMonth > currentMonth || displayYear > currentYear) {
                     /**
-                     * Invoke OnClickListener and make item selected.
+                     * Invoke OnClickListener and make the item selected.
                      */
                     holder.linearLayout!!.setOnClickListener {
                         index = position
@@ -128,7 +128,7 @@ class CalendarAdapter(private val context: Context,
     }
 
     /**
-     * This make item disabled.
+     * This make the item disabled.
      */
     private fun makeItemDisabled(holder: ViewHolder) {
         holder.txtDay!!.setTextColor(ContextCompat.getColor(context, R.color.themeColor2))
@@ -138,7 +138,7 @@ class CalendarAdapter(private val context: Context,
     }
 
     /**
-     * This make item selected.
+     * This make the item selected.
      */
     private fun makeItemSelected(holder: ViewHolder) {
         holder.txtDay!!.setTextColor(Color.parseColor("#FFFFFF"))
@@ -148,7 +148,7 @@ class CalendarAdapter(private val context: Context,
     }
 
     /**
-     * This make item default.
+     * This make the item default.
      */
     private fun makeItemDefault(holder: ViewHolder) {
         holder.txtDay!!.setTextColor(Color.BLACK)
